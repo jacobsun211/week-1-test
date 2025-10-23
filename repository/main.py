@@ -17,5 +17,16 @@ if __name__ == '__main__':
         elif len(won_pile_p2) > len(won_pile_p1):
             print("the winner is:", deck["player_2"]["name"])
         else:
-            print("DREW")
+            print("DREW, lets do a tie breaker")
+            hearts = 0
+            for card in won_pile_p1:
+                if card["suite"] == "H":
+                    hearts += 1
+            if hearts >= 7:
+                print(f"the winner is {deck["player_1"]["name"]} since he has more hearts")
+                print(f"he has {hearts} hearts")
+            else:
+                print(f"the winner is {deck["player_2"]["name"]} since he has more hearts")
+                print(f"he has {13 - hearts} hearts")
+
     main()
